@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom"
 import { auth, db } from "../firebase/firebase"
-import { onAuthStateChanged } from "firebase/auth"
+import { onAuthStateChanged, signOut } from "firebase/auth"
 import { collection, getDocs, doc, getDoc } from "firebase/firestore"
 import { useState, useEffect } from "react"
 
@@ -51,16 +51,29 @@ const Home = () => {
 
     const isExpanded = (postId) => expandedPostIds.includes(postId)
 
+     // Handle logout
+     const handleLogout = async () => {
+        try {
+            await signOut(auth)
+            console.log("User signed out")
+        } catch (error) {
+            console.error("Error signing out: ", error)
+        }
+    }
+
     return (
         <>
             <div>
                 <div>
                     {user ? (
-                        <p>
-                            <h1>Welcome, <span className="text-cyan-700 font-bold text-lg">{userName}</span></h1>
+                        <p className="flex justify-between">
+                            <h1 className="ml-2">Welcome, <span className="text-cyan-700 font-bold text-lg">{userName}</span></h1>
+                            <button onClick={handleLogout} className="text-red-500 hover:text-amber-400 px-4 py-2 rounded-md duration-300 mr-2">
+                                Logout
+                            </button>
                         </p>
                     ) : (
-                        <p>Please log in</p>
+                        <p className="ml-2 text-red-500 text-lg font-semibold">Please log in</p>
                     )}
                 </div>
                 <div>
