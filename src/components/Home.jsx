@@ -80,7 +80,7 @@ const Home = () => {
                     <div className="border grid place-content-center md:grid md:grid-cols-2 lg:grid-cols-3">
                         {posts.map((post) => (
                             <div key={post.id} className="border shadow-current shadow-inner m-2 p-2 rounded-lg max-w-lg">
-                                <div className="border p-2 rounded-lg space-y-2">
+                                <div className="border p-2 rounded-lg space-y-2 shadow-md shadow-current">
                                     <h2 className="border px-2 rounded-lg font-bold">{post.title} by:<span className="text-cyan-700 text-right"> {post.author}</span></h2>
                                     <p className="border px-2 rounded-lg">
                                         {/* Show full content if expanded, otherwise show truncated content */}
