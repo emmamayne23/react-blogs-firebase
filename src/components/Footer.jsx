@@ -15,7 +15,7 @@ const Footer = () => {
                 <div className='flex gap-10 my-5 md:flex-col'>
                     <img src={viteLogo} className='md:w-24 md:ml-10' />
                     <div>
-                        <p className='md:text-2xl font-bold'>Em Blogs Project</p>
+                        <p className='md:text-2xl font-bold text-lg'>EM Blogs Project</p>
                         <p>A place where every story matters :)</p>
                     </div>
                 </div>
@@ -35,7 +35,7 @@ const Footer = () => {
                     <div className='my-2 text-lg font-semibold text-center'>
                         Our Socials
                     </div>
-                    <div className="flex gap-2 md:grid md:grid-cols-4 md:p-2">
+                    <div className="flex gap-2 md:grid md:grid-cols-4 md:p-2 lg:flex">
 
                         <NavLink to="/" className=" text-blue-500 w-full flex items-center justify-center rounded-lg p-2 hover:bg-white hover:text-blue-500 hover:border-blue-500 border duration-300 md:bg-white md:text-blue-500">
                             <i className="fa-brands fa-twitter"></i>

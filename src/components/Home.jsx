@@ -3,6 +3,7 @@ import { auth, db } from "../firebase/firebase"
 import { onAuthStateChanged, signOut } from "firebase/auth"
 import { collection, getDocs, doc, getDoc } from "firebase/firestore"
 import { useState, useEffect } from "react"
+import '../App.css'
 
 const Home = () => {
 
@@ -10,6 +11,8 @@ const Home = () => {
     const [userName, setUserName] = useState('')
 
     const [posts, setPosts] = useState([])
+
+    const [loading, setLoading] = useState(true)
 
     // Fetch user information
     useEffect(() => {
@@ -31,12 +34,26 @@ const Home = () => {
     // Fetch posts from Firestore
     useEffect(() => {
         const fetchPosts = async () => {
-            const querySnapshot = await getDocs(collection(db, 'posts'))
-            setPosts(querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() })))
+            try {
+                setLoading(true)
+                const querySnapshot = await getDocs(collection(db, 'posts'))
+                const allPosts = (querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() })))
+
+                // Separate current user's posts and other posts
+                const userPosts = allPosts.filter(post => post.author === userName)
+                const otherPosts = allPosts.filter(post => post.author !== userName)
+
+                // Set posts with user's posts first
+                setPosts([...userPosts, ...otherPosts])
+            } catch (error) {
+                console.error('Error fetching posts:', error);
+            } finally {
+                setLoading(false);
+            }
         }
 
         fetchPosts()
-    }, [])
+    }, [userName])
 
     // For managing post content visibility
     const [expandedPostIds, setExpandedPostIds] = useState([])
@@ -77,7 +94,59 @@ const Home = () => {
                     )}
                 </div>
                 <div>
-                    <div className="border grid place-content-center md:grid md:grid-cols-2 lg:grid-cols-3">
+                    { loading ? (
+                        <div className="grid place-content-center h-screen">
+                            <div>
+                            <div className="main">
+                              <div className="up">
+                                <div className="loaders">
+                                  <div className="loader"></div>
+                                  <div className="loader"></div>
+                                  <div className="loader"></div>
+                                  <div className="loader"></div>
+                                  <div className="loader"></div>
+                                  <div className="loader"></div>
+                                  <div className="loader"></div>
+                                  <div className="loader"></div>
+                                  <div className="loader"></div>
+                                  <div className="loader"></div>
+                                </div>
+                                <div className="loadersB">
+                                  <div className="loaderA">
+                                    <div className="ball0"></div>
+                                  </div>
+                                  <div className="loaderA">
+                                    <div className="ball1"></div>
+                                  </div>
+                                  <div className="loaderA">
+                                    <div className="ball2"></div>
+                                  </div>
+                                  <div className="loaderA">
+                                    <div className="ball3"></div>
+                                  </div>
+                                  <div className="loaderA">
+                                    <div className="ball4"></div>
+                                  </div>
+                                  <div className="loaderA">
+                                    <div className="ball5"></div>
+                                  </div>
+                                  <div className="loaderA">
+                                    <div className="ball6"></div>
+                                  </div>
+                                  <div className="loaderA">
+                                    <div className="ball7"></div>
+                                  </div>
+                                  <div className="loaderA">
+                                    <div className="ball8"></div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            
+                            </div>
+                        </div>
+                    ) : (
+                        <div className="border grid place-content-center md:grid md:grid-cols-2 lg:grid-cols-3">
                         {posts.map((post) => (
                             <div key={post.id} className="border shadow-current shadow-inner m-2 p-2 rounded-lg max-w-lg">
                                 <div className="border p-2 rounded-lg space-y-2 shadow-md shadow-current">
@@ -97,6 +166,7 @@ const Home = () => {
                             </div>
                         ))}
                     </div>
+                    ) }
 
                     <NavLink to="/createpost" className="grid place-content-center fixed right-1 bottom-10 w-8 rounded-full m-3 px-8 py-6 text-white bg-blue-500 hover:bg-blue-800 duration-300 hover:shadow-2xl hover:shadow-current">
                         <i className="fa-solid fa-feather-pointed"></i>
