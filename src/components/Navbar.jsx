@@ -84,7 +84,7 @@ const Navbar = () => {
                             <i className="fa-solid fa-right-to-bracket"></i><span>Sign Up</span>
                         </NavLink>
                     </div>
-                    <div className="flex gap-2 my-2">
+                    <div className="flex gap-2 my-2 mb-40">
                         <NavLink to="/" className=" text-blue-500 flex items-center justify-center rounded-lg py-2 px-4  hover:bg-white hover:text-blue-500 hover:border-blue-500 border duration-300 md:bg-white md:text-blue-500 md:hidden">
                             <i className="fa-brands fa-twitter"></i>
                         </NavLink>
