@@ -148,17 +148,18 @@ const Home = () => {
                     ) : (
                         <div className="border grid place-content-center md:grid md:grid-cols-2 lg:grid-cols-3">
                         {posts.map((post) => (
-                            <div key={post.id} className="border shadow-current shadow-inner m-2 p-2 rounded-lg max-w-lg">
-                                <div className="border p-2 rounded-lg space-y-2 shadow-md shadow-current">
-                                    <h2 className="border px-2 rounded-lg font-bold">{post.title} by:<span className="text-cyan-700 text-right"> {post.author}</span></h2>
-                                    <p className="border px-2 rounded-lg">
+                            <div key={post.id} className=" m-2 p-2 rounded-lg max-w-lg">
+                                <div className="border p-2 rounded-lg space-y-2 shadow-md min-h-44">
+                                    <h2 className=" px-2 rounded-lg font-bold">{post.title} by:<span className="text-cyan-700 text-right"> {post.author}</span></h2>
+                                    <hr />
+                                    <p className=" px-2 rounded-lg">
                                         {/* Show full content if expanded, otherwise show truncated content */}
                                         {isExpanded(post.id) ? post.content : `${post.content.slice(0, 100)}...`}
                                     </p>
                                     {/* Toggle button to expand or collapse content */}
                                     <button 
                                         onClick={() => toggleReadMore(post.id)} 
-                                        className="text-blue-500 hover:underline"
+                                        className="text-blue-500 hover:underline pl-2"
                                     >
                                         {isExpanded(post.id) ? 'Show Less' : 'Read More'}
                                     </button>

@@ -19,11 +19,11 @@ const Footer = () => {
                         <p>A place where every story matters :)</p>
                     </div>
                 </div>
-                <form className='my-5 text-lg mr-1'>
+                <form className='my-5 text-lg mr-1 px-5'>
                     <p className='text-center'>Subscribe to Our Newsletter:</p>
                     <input 
                         type='email'
-                        className='border rounded-s focus:outline-none text-black focus:ring w-72 md:w-full p-1.5 py-2 ring-white md:rounded-2xl md:pl-5'
+                        className='border rounded-s focus:outline-none text-black focus:ring w-68 md:w-full p-1.5 py-2 ring-white md:rounded-2xl md:pl-5'
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                         placeholder='Email Address'

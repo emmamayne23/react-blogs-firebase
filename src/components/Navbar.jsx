@@ -39,64 +39,65 @@ const Navbar = () => {
             
             <div>
                 <button onClick={openSidebar} className="border rounded-xl p-3 md:hidden">
-                    <i className="fa-solid fa-mug-hot fa-2xl text-blue-400"></i>
+                    <i className="fa-solid fa-mug-saucer fa-2xl text-blue-400"></i>
                 </button>
 
-                <div className={`fixed flex flex-col md:h-auto md:border md:flex-row md:justify-evenly md:mx-auto md:border-none md:shadow-none md:items-center md:py-1 md:-translate-x-28 md:w-full md:relative lg:-translate-x-72 lg:gap-8 gap-5 py-5 px-3 border w-6/12 top-0 left-0 z-10 bg-white h-lvh shadow-md duration-300 overflow-hidden ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full'}`}>
+                <div className={`fixed flex w-4/5 flex-col md:h-auto md:border md:flex-row md:justify-evenly md:mx-auto md:border-none md:shadow-none md:items-center md:py-1 md:-translate-x-28 md:w-full md:relative lg:-translate-x-72 lg:gap-8 gap-5 py-5 px-3 border top-0 left-0 z-10 bg-white h-lvh shadow-md duration-300 overflow-hidden ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full'}`}>
                      
-                    <div className="mb-2 flex items-center justify-between px-2 py-1 pb-4 border-b md:hidden">
+                    <div className="mb-2 flex items-center justify-between my-2 px-2 py-2 pb-4 border-b md:hidden">
                         <NavLink className="border rounded-full px-2 py-1 text-black border-black hover:text-blue-500 hover:border-blue-500 duration-300 hover:px-2.5 hover:py-1.5">
                             <i className="fa-solid fa-user"></i>
                         </NavLink>
-                        <div>
-                            {user ? (
-                                <span className="text-cyan-700 font-bold text-lg">{userName}</span>
-                            ) : (
-                                <p>Please log in</p>
-                            )}
-                        </div>
                         <button onClick={closeSidebar} className="hover:text-red-700 md:hidden">
                             <i className="fa-solid fa-door-open"></i>
                         </button>
                     </div>
+                    <div className="md:hidden">
+                        {user ? (
+                            <span className="text-cyan-700 font-bold text-lg">{userName}</span>
+                        ) : (
+                            <p className="text-red-500 font-semibold">Please log in</p>
+                        )}
+                    </div>
 
-                    <NavLink to="/" className="bg-blue-500 text-white w-full rounded-lg p-2 hover:bg-white hover:text-blue-500 hover:border-blue-500 hover:pl-5 border duration-300 md:bg-white md:text-blue-500 md:p-2 md:hover:pl-2 md:text-center md:h-10 md:flex md:items-center md:justify-center md:border-none md:hover:text-cyan-400">
-                        <span>Home</span>
+
+                    <NavLink to="/" className="bg-blue-500 text-white w-full space-x-3 rounded-lg p-2 hover:bg-white hover:text-blue-500 hover:border-blue-500 hover:pl-5 border duration-300 md:bg-white md:text-blue-500 md:p-2 md:hover:pl-2 md:text-center md:h-10 md:flex md:items-center md:justify-center md:border-none md:hover:text-cyan-400">
+                        <i className="fa-solid fa-house"></i><span>Home</span>
                     </NavLink>
-                    <NavLink to="/about" className="bg-blue-500 text-white w-full rounded-lg p-2 hover:bg-white hover:text-blue-500 hover:border-blue-500 hover:pl-5 border duration-300 md:bg-white md:text-blue-500 md:p-2 md:hover:pl-2 md:text-center md:h-10 md:flex md:items-center md:justify-center md:border-none md:hover:text-cyan-400">
-                        <span>About</span>
+                    <NavLink to="/about" className="bg-blue-500 text-white w-full space-x-3 rounded-lg p-2 hover:bg-white hover:text-blue-500 hover:border-blue-500 hover:pl-5 border duration-300 md:bg-white md:text-blue-500 md:p-2 md:hover:pl-2 md:text-center md:h-10 md:flex md:items-center md:justify-center md:border-none md:hover:text-cyan-400">
+                        <i className="fa-solid fa-info px-1.5"></i><span>About</span>
                     </NavLink>
-                    <NavLink to="/support" className="bg-blue-500 text-white w-full rounded-lg p-2 hover:bg-white hover:text-blue-500 hover:border-blue-500 hover:pl-5 border duration-300 md:bg-white md:text-blue-500 md:p-2 md:hover:pl-2 md:text-center md:h-10 md:flex md:items-center md:justify-center md:border-none md:hover:text-cyan-400">
-                        <span>Support</span>
+                    <NavLink to="/support" className="bg-blue-500 text-white w-full space-x-3 rounded-lg p-2 hover:bg-white hover:text-blue-500 hover:border-blue-500 hover:pl-5 border duration-300 md:bg-white md:text-blue-500 md:p-2 md:hover:pl-2 md:text-center md:h-10 md:flex md:items-center md:justify-center md:border-none md:hover:text-cyan-400">
+                        <i className="fa-solid fa-headset"></i><span>Support</span>
                     </NavLink>
-                    <NavLink to="/about" className="bg-blue-500 text-white w-full rounded-lg p-2 hover:bg-white hover:text-blue-500 hover:border-blue-500 hover:pl-5 border duration-300 md:bg-white md:text-blue-500 md:p-2 md:hover:pl-2 md:text-center md:h-10 md:flex md:items-center md:justify-center md:border-none md:hover:text-cyan-400">
-                        <span>Bookmarks</span>
+                    <NavLink to="/about" className="bg-blue-500 text-white w-full rounded-lg p-2 space-x-3 hover:bg-white hover:text-blue-500 hover:border-blue-500 hover:pl-5 border duration-300 md:bg-white md:text-blue-500 md:p-2 md:hover:pl-2 md:text-center md:h-10 md:flex md:items-center md:justify-center md:border-none md:hover:text-cyan-400">
+                        <i className="fa-regular fa-bookmark"></i><span>Bookmarks</span>
                     </NavLink>
+                    
                     <div className="flex-auto">
                     </div>
-                    <div className="flex gap-3">
-                        <NavLink to="/settings" className="bg-blue-500 text-white w-full rounded-lg p-2 hover:bg-white hover:text-blue-500 hover:border-blue-500 hover:pl-5 border duration-300 md:bg-white md:text-blue-500 md:p-2 md:hover:pl-2 md:text-center md:h-10 md:flex md:items-center md:justify-center md:border-none md:hover:text-cyan-400">
-                            <span>Settings</span>
+                    <div className="flex gap-3 my-2">
+                        <NavLink to="/settings" className="bg-blue-500 text-white space-x-3 w-full rounded-lg p-2 hover:bg-white hover:text-blue-500 hover:border-blue-500 hover:pl-5 border duration-300 md:bg-white md:text-blue-500 md:p-2 md:hover:pl-2 md:text-center md:h-10 md:flex md:items-center md:justify-center md:border-none md:hover:text-cyan-400">
+                            <i className="fa-solid fa-gear"></i><span>Settings</span>
                         </NavLink>
-                        <NavLink to="/signup" className="bg-blue-500 text-white w-full rounded-lg p-2 hover:bg-white hover:text-blue-500 hover:border-blue-500 hover:pl-5 border duration-300 md:bg-white md:text-blue-500 md:hidden">
-                            <span>Sign Up</span>
+                        <NavLink to="/signup" className="bg-blue-500 text-white w-full space-x-3 rounded-lg p-2 hover:bg-white hover:text-blue-500 hover:border-blue-500 hover:pl-5 border duration-300 md:bg-white md:text-blue-500 md:hidden">
+                            <i className="fa-solid fa-right-to-bracket"></i><span>Sign Up</span>
                         </NavLink>
                     </div>
-                    <div className="flex gap-2">
-
-                        <NavLink to="/" className=" text-blue-500 w-full flex items-center justify-center rounded-lg p-2 hover:bg-white hover:text-blue-500 hover:border-blue-500 border duration-300 md:bg-white md:text-blue-500 md:hidden">
+                    <div className="flex gap-2 my-2">
+                        <NavLink to="/" className=" text-blue-500 flex items-center justify-center rounded-lg py-2 px-4  hover:bg-white hover:text-blue-500 hover:border-blue-500 border duration-300 md:bg-white md:text-blue-500 md:hidden">
                             <i className="fa-brands fa-twitter"></i>
                         </NavLink>
-                        <NavLink to="/" className=" text-blue-500 w-full flex items-center justify-center rounded-lg p-2 hover:bg-white hover:text-blue-500 hover:border-blue-500 border duration-300 md:bg-white md:text-blue-500 md:hidden">
+                        <NavLink to="/" className=" text-blue-500 flex items-center justify-center rounded-lg py-2 px-4 hover:bg-white hover:text-blue-500 hover:border-blue-500 border duration-300 md:bg-white md:text-blue-500 md:hidden">
                             <i className="fa-brands fa-instagram"></i>
                         </NavLink>
-                        <NavLink to="/" className=" text-blue-500 w-full flex items-center justify-center rounded-lg p-2 hover:bg-white hover:text-blue-500 hover:border-blue-500 border duration-300 md:bg-white md:text-blue-500 md:hidden">
+                        <NavLink to="/" className=" text-blue-500 flex items-center justify-center rounded-lg py-2 px-4 hover:bg-white hover:text-blue-500 hover:border-blue-500 border duration-300 md:bg-white md:text-blue-500 md:hidden">
                             <i className="fa-brands fa-github"></i>
                         </NavLink>
-                        <NavLink to="/" className=" text-blue-500 w-full flex items-center justify-center rounded-lg p-2 hover:bg-white hover:text-blue-500 hover:border-blue-500 border duration-300 md:bg-white md:text-blue-500 md:hidden">
+                        <NavLink to="/" className=" text-blue-500 flex items-center justify-center rounded-lg py-2 px-4 hover:bg-white hover:text-blue-500 hover:border-blue-500 border duration-300 md:bg-white md:text-blue-500 md:hidden">
                             <i className="fa-solid fa-envelope"></i>
                         </NavLink>
-                        <NavLink to="/" className=" text-blue-500 w-full flex items-center justify-center rounded-lg p-2 hover:bg-white hover:text-blue-500 hover:border-blue-500 border duration-300 md:bg-white md:text-blue-500 md:hidden">
+                        <NavLink to="/" className=" text-blue-500 flex items-center justify-center rounded-lg py-2 px-4 hover:bg-white hover:text-blue-500 hover:border-blue-500 border duration-300 md:bg-white md:text-blue-500 md:hidden">
                             <i className="fa-solid fa-phone"></i>
                         </NavLink>
                         
