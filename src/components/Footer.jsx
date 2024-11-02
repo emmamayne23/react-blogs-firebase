@@ -19,7 +19,7 @@ const Footer = () => {
                         <p>A place where every story matters :)</p>
                     </div>
                 </div>
-                <form className='my-5 text-lg mr-1 px-5'>
+                <form className='my-5 text-lg mr-1 px-10'>
                     <p className='text-center'>Subscribe to Our Newsletter:</p>
                     <input 
                         type='email'
@@ -28,7 +28,7 @@ const Footer = () => {
                         onChange={(e) => setEmail(e.target.value)}
                         placeholder='Email Address'
                     />
-                    <button className=' p-2.5 text-white w-28 md:w-full bg-blue-500 rounded-e-lg md:rounded-2xl md:mt-1 md:px-3'>Subscribe</button>
+                    <button className=' p-2.5 text-white w-24 md:w-full bg-blue-500 rounded-e-lg md:rounded-2xl md:mt-1 md:px-3'>Subscribe</button>
                 </form>
 
                 <div>
